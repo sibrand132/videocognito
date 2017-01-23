@@ -1,0 +1,53 @@
+AppBundle\Entity\FilmyAktorzy:
+    type: entity
+    table: filmy_aktorzy
+    indexes:
+        id_filmu:
+            columns:
+                - id_filmu
+                - id_aktora
+        id_aktora:
+            columns:
+                - id_aktora
+        IDX_31D1F70BC90A2E54:
+            columns:
+                - id_filmu
+    id:
+        idFilmyAktorzy:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: id_filmy_aktorzy
+            generator:
+                strategy: IDENTITY
+    fields:
+        rola:
+            type: text
+            nullable: false
+            length: 65535
+            options:
+                fixed: false
+    manyToOne:
+        idAktora:
+            targetEntity: Aktorzy
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_aktora:
+                    referencedColumnName: id_aktora
+            orphanRemoval: false
+        idFilmu:
+            targetEntity: Filmy
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_filmu:
+                    referencedColumnName: id_filmu
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

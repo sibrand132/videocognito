@@ -1,0 +1,10 @@
+aktorzy:
+    path:     /
+    defaults: { _controller: "AppBundle:Aktorzy:index" }
+
+aktorzy_show:
+    path:     /{id}/show
+    defaults: { _controller: "AppBundle:Aktorzy:show" }
+
+
+

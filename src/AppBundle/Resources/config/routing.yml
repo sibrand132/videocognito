@@ -1,0 +1,45 @@
+app_komentarze:
+    resource: "@AppBundle/Resources/config/routing/komentarze.yml"
+    prefix:   /komentarze
+
+app_aktorzy:
+    resource: "@AppBundle/Resources/config/routing/aktorzy.yml"
+    prefix:   /aktorzy
+
+app_scenarzysci:
+    resource: "@AppBundle/Resources/config/routing/scenarzysci.yml"
+    prefix:   /scenarzysci
+
+app_rezyserzy:
+    resource: "@AppBundle/Resources/config/routing/rezyserzy.yml"
+    prefix:   /rezyserzy
+
+app_filmy:
+    resource: "@AppBundle/Resources/config/routing/filmy.yml"
+    prefix:   /filmy
+
+
+show:
+    path:     /show
+    defaults: { _controller: AppBundle:MainPage:show }
+
+
+movie:
+    path:     /movie
+    defaults: { _controller: AppBundle:MoviePage:movie }
+
+
+addcomment:
+    path:     /addcomment
+    defaults: { _controller: AppBundle:CommentControler:addcomment }
+
+
+search:
+    path:     /search
+    defaults: { _controller: AppBundle:Wyszukiwanie:search }
+
+
+
+ranking:
+    path:     /ranking
+    defaults: { _controller: AppBundle:Ranking:show }

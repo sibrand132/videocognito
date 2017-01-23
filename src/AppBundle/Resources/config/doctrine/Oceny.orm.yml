@@ -1,0 +1,44 @@
+AppBundle\Entity\Oceny:
+    type: entity
+    table: oceny
+    indexes:
+        id_filmu:
+            columns:
+                - id_filmu
+                - id_uzytkownika
+        id_uzytkownika:
+            columns:
+                - id_uzytkownika
+        IDX_6868C916C90A2E54:
+            columns:
+                - id_filmu
+    id:
+        idOceny:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: id_oceny
+            generator:
+                strategy: IDENTITY
+    fields:
+        idUzytkownika:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: id_uzytkownika
+        ocena:
+            type: float
+            nullable: false
+            precision: 10
+            scale: 0
+        idFilmu:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: id_filmu
+
+    lifecycleCallbacks: {  }

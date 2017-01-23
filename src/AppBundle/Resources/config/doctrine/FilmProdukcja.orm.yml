@@ -1,0 +1,46 @@
+AppBundle\Entity\FilmProdukcja:
+    type: entity
+    table: film_produkcja
+    indexes:
+        id_filmu:
+            columns:
+                - id_filmu
+                - id_produkcji
+        id_produkcji:
+            columns:
+                - id_produkcji
+        IDX_10ABD6C2C90A2E54:
+            columns:
+                - id_filmu
+    id:
+        idFilmyProdukcja:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: id_filmy_produkcja
+            generator:
+                strategy: IDENTITY
+    manyToOne:
+        idFilmu:
+            targetEntity: Filmy
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_filmu:
+                    referencedColumnName: id_filmu
+            orphanRemoval: false
+        idProdukcji:
+            targetEntity: Produkcja
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_produkcji:
+                    referencedColumnName: id_produkcji
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

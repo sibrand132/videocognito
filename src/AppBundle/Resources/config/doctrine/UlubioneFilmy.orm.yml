@@ -1,0 +1,40 @@
+AppBundle\Entity\UlubioneFilmy:
+    type: entity
+    table: ulubione_filmy
+    indexes:
+        id_filmu:
+            columns:
+                - id_filmu
+    uniqueConstraints:
+        id_uzytkownika:
+            columns:
+                - id_uzytkownika
+    id:
+        idUlubione:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: id_ulubione
+            generator:
+                strategy: IDENTITY
+    fields:
+        idUzytkownika:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: id_uzytkownika
+    manyToOne:
+        idFilmu:
+            targetEntity: Filmy
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_filmu:
+                    referencedColumnName: id_filmu
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

@@ -1,0 +1,46 @@
+AppBundle\Entity\FilmyScenarzysci:
+    type: entity
+    table: filmy_scenarzysci
+    indexes:
+        id_filmu:
+            columns:
+                - id_filmu
+                - id_scenarzysty
+        id_scenarzysty:
+            columns:
+                - id_scenarzysty
+        IDX_DA940417C90A2E54:
+            columns:
+                - id_filmu
+    id:
+        idFilmyScenarzysci:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: id_filmy_scenarzysci
+            generator:
+                strategy: IDENTITY
+    manyToOne:
+        idFilmu:
+            targetEntity: Filmy
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_filmu:
+                    referencedColumnName: id_filmu
+            orphanRemoval: false
+        idScenarzysty:
+            targetEntity: Scenarzysci
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_scenarzysty:
+                    referencedColumnName: id_scenarzysty
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

@@ -1,0 +1,50 @@
+AppBundle\Entity\Aktorzy:
+    type: entity
+    table: aktorzy
+    id:
+        idAktora:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: id_aktora
+            generator:
+                strategy: IDENTITY
+    fields:
+        imie:
+            type: text
+            nullable: false
+            length: 65535
+            options:
+                fixed: false
+        nazwisko:
+            type: text
+            nullable: false
+            length: 65535
+            options:
+                fixed: false
+        dataUrodzenia:
+            type: date
+            nullable: false
+            column: data_urodzenia
+        miejsceUrodzenia:
+            type: text
+            nullable: false
+            length: 65535
+            options:
+                fixed: false
+            column: miejsce_urodzenia
+        zdjecie:
+            type: text
+            nullable: false
+            length: 65535
+            options:
+                fixed: false
+        biografia:
+            type: text
+            nullable: false
+            length: 65535
+            options:
+                fixed: false
+    lifecycleCallbacks: {  }

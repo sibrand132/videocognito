@@ -1,0 +1,265 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}Ranking - Videocognito{% endblock %}
+{% block stylesheets %} <link href="{{ asset('style/lista.css') }}" rel="stylesheet" /> {% endblock %}
+
+
+
+{% block body %}
+    <ul class="nav nav-pills">
+        <li class="active"><a data-toggle="pill" href="#home">Dowolny gatunek</a></li>
+        <li><a data-toggle="pill" href="#dramat">Dramat</a></li>
+        <li><a data-toggle="pill" href="#komedia">Komedia</a></li>
+        <li><a data-toggle="pill" href="#western">Western</a></li>
+        <li><a data-toggle="pill" href="#gangsterski">Gangsterski</a></li>
+        <li><a data-toggle="pill" href="#przygodowy">Przygodowy</a></li>
+    </ul>
+
+    <div class="tab-content">
+        <div id="home" class="tab-pane fade in active">
+            <h3>Ranking</h3>
+            <p>
+
+            <div id="lista">
+                <div class="table-responsive">
+                    <table style="font-size: 20px;" class="table">
+                        <thead>
+                        <tr>
+                            <th></th>
+                            <th>Polski tytuł</th>
+                            <th>Oryginalny tytuł</th>
+                            <th>Data premiery światowej</th>
+                            <th>Czas trwania</th>
+                            <th>Ocena</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for entity in wszystkie %}
+                            <tr>
+                                <td>  <a href="{{ path('filmy_show', {'id': entity.idFilmu}) }}">
+                                        <p>  <img src="{{ entity.plakat }}" title="{{entity.tytulPl }}" width="70" height="100"></p>
+                                    </a></td>
+                                <td><a href="{{ path('filmy_show', {'id': entity.idFilmu}) }}">
+                                        <p>  {{ entity.tytulPl }}</p>
+                                    </a></td>
+                                <td><a href="{{ path('filmy_show', {'id': entity.idFilmu}) }}">
+                                        <p>  {{ entity.tytulAng }}</p>
+                                    </a></td>
+                                <td>{% if entity.dataPremierySwiat %}{{ entity.dataPremierySwiat|date('d-m-Y ') }}{% endif %}</td>
+                                <td>{{ entity.czasTrwaniaMin }} minut</td>
+                                <td><img style="float: left; padding-top: 2px;" class="img-responsive" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Gold_Star.svg/2000px-Gold_Star.svg.png" width="20">{{ entity.ocenaKoncowa|number_format(2,'.',',') }}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            </p>
+        </div>
+        <div id="dramat" class="tab-pane fade">
+            <h3>Ranking dramatów</h3>
+
+            <p>
+            <div id="lista">
+                <div class="table-responsive">
+                    <table style="font-size: 20px;" class="table">
+                        <thead>
+                        <tr>
+                            <th></th>
+                            <th>Polski tytuł</th>
+                            <th>Oryginalny tytuł</th>
+                            <th>Data premiery światowej</th>
+                            <th>Czas trwania</th>
+                            <th>Ocena</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for entity in dramaty %}
+                            <tr>
+                                <td>  <a href="{{ path('filmy_show', {'id': entity.idFilmu}) }}">
+                                        <p>  <img src="{{ entity.plakat }}" title="{{entity.tytulPl }}" width="70" height="100"></p>
+                                    </a></td>
+                                <td><a href="{{ path('filmy_show', {'id': entity.idFilmu}) }}">
+                                        <p>  {{ entity.tytulPl }}</p>
+                                    </a></td>
+                                <td><a href="{{ path('filmy_show', {'id': entity.idFilmu}) }}">
+                                        <p>  {{ entity.tytulAng }}</p>
+                                    </a></td>
+                                <td>{% if entity.dataPremierySwiat %}{{ entity.dataPremierySwiat|date('d-m-Y ') }}{% endif %}</td>
+                                <td>{{ entity.czasTrwaniaMin }} minut</td>
+                                <td><img style="float: left; padding-top: 2px;" class="img-responsive" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Gold_Star.svg/2000px-Gold_Star.svg.png" width="20">{{ entity.ocenaKoncowa|number_format(2,'.',',') }}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            </p>
+        </div>
+        <div id="komedia" class="tab-pane fade">
+            <h3>Ranking komedii</h3>
+            <p>
+            <div id="lista">
+                <div class="table-responsive">
+                    <table style="font-size: 20px;" class="table">
+                        <thead>
+                        <tr>
+                            <th></th>
+                            <th>Polski tytuł</th>
+                            <th>Oryginalny tytuł</th>
+                            <th>Data premiery światowej</th>
+                            <th>Czas trwania</th>
+                            <th>Ocena</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for entity in komedie %}
+                            <tr>
+                                <td>  <a href="{{ path('filmy_show', {'id': entity.idFilmu}) }}">
+                                        <p>  <img src="{{ entity.plakat }}" title="{{entity.tytulPl }}" width="70" height="100"></p>
+                                    </a></td>
+                                <td><a href="{{ path('filmy_show', {'id': entity.idFilmu}) }}">
+                                        <p>  {{ entity.tytulPl }}</p>
+                                    </a></td>
+                                <td><a href="{{ path('filmy_show', {'id': entity.idFilmu}) }}">
+                                        <p>  {{ entity.tytulAng }}</p>
+                                    </a></td>
+                                <td>{% if entity.dataPremierySwiat %}{{ entity.dataPremierySwiat|date('d-m-Y ') }}{% endif %}</td>
+                                <td>{{ entity.czasTrwaniaMin }} minut</td>
+                                <td><img style="float: left; padding-top: 2px;" class="img-responsive" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Gold_Star.svg/2000px-Gold_Star.svg.png" width="20">{{ entity.ocenaKoncowa|number_format(2,'.',',') }}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            </p>
+        </div>
+        <div id="western" class="tab-pane fade">
+            <h3>Ranking westernów</h3>
+            <p>
+            <div id="lista">
+                <div class="table-responsive">
+                    <table style="font-size: 20px;" class="table">
+                        <thead>
+                        <tr>
+                            <th></th>
+                            <th>Polski tytuł</th>
+                            <th>Oryginalny tytuł</th>
+                            <th>Data premiery światowej</th>
+                            <th>Czas trwania</th>
+                            <th>Ocena</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for entity in westerny %}
+                            <tr>
+                                <td>  <a href="{{ path('filmy_show', {'id': entity.idFilmu}) }}">
+                                        <p>  <img src="{{ entity.plakat }}" title="{{entity.tytulPl }}" width="70" height="100"></p>
+                                    </a></td>
+                                <td><a href="{{ path('filmy_show', {'id': entity.idFilmu}) }}">
+                                        <p>  {{ entity.tytulPl }}</p>
+                                    </a></td>
+                                <td><a href="{{ path('filmy_show', {'id': entity.idFilmu}) }}">
+                                        <p>  {{ entity.tytulAng }}</p>
+                                    </a></td>
+                                <td>{% if entity.dataPremierySwiat %}{{ entity.dataPremierySwiat|date('d-m-Y ') }}{% endif %}</td>
+                                <td>{{ entity.czasTrwaniaMin }} minut</td>
+                                <td><img style="float: left; padding-top: 2px;" class="img-responsive" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Gold_Star.svg/2000px-Gold_Star.svg.png" width="20">{{ entity.ocenaKoncowa|number_format(2,'.',',') }}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            </p>
+        </div>
+        <div id="gangsterski" class="tab-pane fade">
+            <h3>Ranking westernów</h3>
+            <p>
+            <div id="lista">
+                <div class="table-responsive">
+                    <table style="font-size: 20px;" class="table">
+                        <thead>
+                        <tr>
+                            <th></th>
+                            <th>Polski tytuł</th>
+                            <th>Oryginalny tytuł</th>
+                            <th>Data premiery światowej</th>
+                            <th>Czas trwania</th>
+                            <th>Ocena</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for entity in gangsterskie %}
+                            <tr>
+                                <td>  <a href="{{ path('filmy_show', {'id': entity.idFilmu}) }}">
+                                        <p>  <img src="{{ entity.plakat }}" title="{{entity.tytulPl }}" width="70" height="100"></p>
+                                    </a></td>
+                                <td><a href="{{ path('filmy_show', {'id': entity.idFilmu}) }}">
+                                        <p>  {{ entity.tytulPl }}</p>
+                                    </a></td>
+                                <td><a href="{{ path('filmy_show', {'id': entity.idFilmu}) }}">
+                                        <p>  {{ entity.tytulAng }}</p>
+                                    </a></td>
+                                <td>{% if entity.dataPremierySwiat %}{{ entity.dataPremierySwiat|date('d-m-Y ') }}{% endif %}</td>
+                                <td>{{ entity.czasTrwaniaMin }} minut</td>
+                                <td><img style="float: left; padding-top: 2px;" class="img-responsive" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Gold_Star.svg/2000px-Gold_Star.svg.png" width="20">{{ entity.ocenaKoncowa|number_format(2,'.',',') }}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            </p>
+        </div>
+
+        <div id="przygodowy" class="tab-pane fade">
+            <h3>Ranking filmów przygodowych</h3>
+            <p>
+            <div id="lista">
+                <div class="table-responsive">
+                    <table style="font-size: 20px;" class="table">
+                        <thead>
+                        <tr>
+                            <th></th>
+                            <th>Polski tytuł</th>
+                            <th>Oryginalny tytuł</th>
+                            <th>Data premiery światowej</th>
+                            <th>Czas trwania</th>
+                            <th>Ocena</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for entity in przygodowe %}
+                            <tr>
+                                <td>  <a href="{{ path('filmy_show', {'id': entity.idFilmu}) }}">
+                                        <p>  <img src="{{ entity.plakat }}" title="{{entity.tytulPl }}" width="70" height="100"></p>
+                                    </a></td>
+                                <td><a href="{{ path('filmy_show', {'id': entity.idFilmu}) }}">
+                                        <p>  {{ entity.tytulPl }}</p>
+                                    </a></td>
+                                <td><a href="{{ path('filmy_show', {'id': entity.idFilmu}) }}">
+                                        <p>  {{ entity.tytulAng }}</p>
+                                    </a></td>
+                                <td>{% if entity.dataPremierySwiat %}{{ entity.dataPremierySwiat|date('d-m-Y ') }}{% endif %}</td>
+                                <td>{{ entity.czasTrwaniaMin }} minut</td>
+                                <td><img style="float: left; padding-top: 2px;" class="img-responsive" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Gold_Star.svg/2000px-Gold_Star.svg.png" width="20">{{ entity.ocenaKoncowa|number_format(2,'.',',') }}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            </p>
+        </div>
+
+
+    </div>
+
+{% endblock %}

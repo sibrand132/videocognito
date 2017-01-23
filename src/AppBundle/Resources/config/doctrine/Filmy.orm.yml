@@ -1,0 +1,76 @@
+AppBundle\Entity\Filmy:
+    type: entity
+    table: filmy
+    indexes:
+        id_rezysera:
+            columns:
+                - id_rezysera
+    id:
+        idFilmu:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: id_filmu
+            generator:
+                strategy: IDENTITY
+    fields:
+        tytulPl:
+            type: string
+            nullable: false
+            length: 50
+            options:
+                fixed: false
+            column: tytul_pl
+        tytulAng:
+            type: string
+            nullable: false
+            length: 50
+            options:
+                fixed: false
+            column: tytul_ang
+        dataPremierySwiat:
+            type: date
+            nullable: false
+            column: data_premiery_swiat
+        dataPremieryPl:
+            type: date
+            nullable: false
+            column: data_premiery_pl
+        opis:
+            type: text
+            nullable: false
+            length: 65535
+            options:
+                fixed: false
+        czasTrwaniaMin:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: czas_trwania_min
+        plakat:
+            type: text
+            nullable: false
+            length: 65535
+            options:
+                fixed: false
+        ocenaKoncowa:
+            type: float
+            nullable: false
+            precision: 10
+            scale: 0
+            column: ocenaKoncowa
+    manyToOne:
+        idRezysera:
+            targetEntity: Rezyserzy
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_rezysera:
+                    referencedColumnName: id_rezysera
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

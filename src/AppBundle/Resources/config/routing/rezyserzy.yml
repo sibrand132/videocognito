@@ -1,0 +1,30 @@
+rezyserzy:
+    path:     /
+    defaults: { _controller: "AppBundle:Rezyserzy:index" }
+
+rezyserzy_show:
+    path:     /{id}/show
+    defaults: { _controller: "AppBundle:Rezyserzy:show" }
+
+rezyserzy_new:
+    path:     /new
+    defaults: { _controller: "AppBundle:Rezyserzy:new" }
+
+rezyserzy_create:
+    path:     /create
+    defaults: { _controller: "AppBundle:Rezyserzy:create" }
+    methods:  POST
+
+rezyserzy_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AppBundle:Rezyserzy:edit" }
+
+rezyserzy_update:
+    path:     /{id}/update
+    defaults: { _controller: "AppBundle:Rezyserzy:update" }
+    methods:  [POST, PUT]
+
+rezyserzy_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AppBundle:Rezyserzy:delete" }
+    methods:  [POST, DELETE]

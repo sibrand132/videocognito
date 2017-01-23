@@ -1,0 +1,74 @@
+html,body{
+
+    background: url(http://www.comicclub.it/wp-content/uploads/2013/02/Red-Curtain-Background.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    margin:0;
+    padding:0;
+    height:100%;
+
+
+
+   /* margin-left: auto;
+    margin-right: auto;
+    background: url(http://xdesktopwallpapers.com/wp-content/uploads/2012/04/Red%20Curtain%20In%20Cinema.jpg) no-repeat center top; */
+
+}
+
+body {
+    min-height: 100%;
+    position:relative;
+}
+
+#head{
+    background-color: #181818;
+}
+#logo{
+    float: left;
+}
+
+
+#search{
+    padding: 30px;
+    float: left;
+}
+#register{
+    float: right;
+}
+
+#navbar{
+    clear: both;
+    font-family: 'Inder', sans-serif;
+    font-size: large;
+}
+.navbar-inverse{
+
+}
+
+#container {
+    width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #dfdfdf;
+    background: rgba(255, 255, 255, 0.6);
+    filter: alpha(opacity=50);
+    display: block;
+    font-family: 'Inder', sans-serif;
+    min-height:100%;
+    position:relative;
+
+}
+
+#stopka {
+    position:absolute;
+    bottom:0;
+    width:100%;
+    height:20px;
+    background-color:#181818;
+    display: inline-block;
+    color: #858585;
+    clear: both;
+}
+

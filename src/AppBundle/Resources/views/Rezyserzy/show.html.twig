@@ -1,0 +1,73 @@
+{% extends '::base.html.twig' %}
+{% block title %} {{ entity.imie }} {{ entity.nazwisko }} - Videocognito{% endblock %}
+{% block stylesheets %}
+    <link href="{{ asset('style/osoba.css') }}" rel="stylesheet" />
+{% endblock %}
+
+{% block body -%}
+    <div id="zdjecie">
+        <img src="{{ entity.zdjecie }}" title="{{ entity.imie }} {{ entity.nazwisko }}" width="350" height="501">
+    </div>
+
+
+
+
+    <div id="opis">
+  <div id="Imie">{{ entity.imie }} {{ entity.nazwisko }}</div>
+        <br/>
+        data urodzenia: {{ entity.dataUrodzenia|date('d-m-Y') }} <br/>
+
+         miejsce urodzenia: {{ entity.miejsceUrodzenia }} <br />
+
+              <div id="biografia">
+                Biografia: </div>
+
+                {{ entity.biografia }}
+
+
+
+    </div>
+     <div style="clear: both"></div> <br/>
+    <div id="tworczosc">Twórczość reżyserska({{ ilFilmow }}):</div>
+    <div id="filmy">
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th></th>
+                    <th>Rok produkcji</th>
+                    <th>Polski tytuł</th>
+                    <th>Oryginalny tytuł</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for film in filmy %}
+                <tr style="font-size: 20px">
+                    <td>  <a href="{{ path('filmy_show', {'id': film.idFilmu}) }}">
+                            <p>  <img src="{{ film.plakat }}" title="{{film.tytulPl }}" width="70" height="100"></p>
+                        </a></td>
+                    <td>{{ film.dataPremierySwiat|date('Y') }}</td>
+                    <td>
+                    <a href="{{ path('filmy_show', {'id': film.idFilmu}) }}">
+                        <p>  {{ film.tytulPl }}</p>
+                    </a>
+                   </td>
+                    <td> <a href="{{ path('filmy_show', {'id': film.idFilmu}) }}">
+                            <p>  {{ film.tytulAng }}</p>
+                        </a></td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('rezyserzy') }}">
+            Wróć do listy reżyserów
+        </a>
+    </li>
+</ul>
+    <br/>
+{% endblock %}

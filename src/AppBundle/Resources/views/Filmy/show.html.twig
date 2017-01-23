@@ -1,0 +1,252 @@
+{% extends '::base.html.twig' %}
+
+{% form_theme form '@App/bootstrapForms.html.twig' %}
+
+{% block title %} {{ entity.tytulPl }} ({{ entity.dataPremierySwiat|date('Y') }}) - Videocognito{% endblock %}
+{% block stylesheets %}
+
+    <link href="{{ asset('style/filmy.css') }}" rel="stylesheet" />
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+    <link href="{{ asset('jsImgSlider/themes/6/js-image-slider.css') }}" rel="stylesheet" type="text/css" />
+    <script src="{{ asset('jsImgSlider/themes/6/mcVideoPlugin.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('jsImgSlider/themes/6/js-image-slider.js') }}" type="text/javascript"></script>
+
+    <script src="{{ asset('/jquery/plugins/jquery.fitvids.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('/jquery/jquery.bxslider.js') }}" type="text/javascript"></script>
+
+    <link rel="stylesheet"  href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link href="{{ asset('vendor/kartik-v/bootstrap-star-rating/css/star-rating.min.css') }}" media="all" rel="stylesheet" type="text/css" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="{{ asset('vendor/kartik-v/bootstrap-star-rating/js/star-rating.min.js') }}" type="text/javascript"></script>
+
+
+
+
+
+
+{% endblock %}
+{% block body -%}
+
+        <div id="plakat">
+            <img src="{{ entity.plakat }}" title="{{ entity.tytulPl }}" width="350" height="501">
+        </div>
+        <div id="opis">
+            <h1>{{ entity.tytulPl }}</h1>
+            {{ entity.tytulAng }}
+
+            <br /><br />
+
+            {{ entity.opis }}
+            <br/><br/>
+
+               <div style="float: left;">reżyseria:&nbsp; </div>
+            <div style="float: left;  ">
+                <a href="{{ path('rezyserzy_show', {'id': idRezysera.idRezysera}) }}">
+                    <p> {{ rezyserImie }} {{ rezyserNazwisko }}</p>
+                </a>
+            </div>
+
+            <div style="clear: both"></div>
+               <div style="float: left;">scenariusz:&nbsp;</div>
+                <div style="float: left;">
+                    {% for scen in scenarzysci %}
+                    <a style="float: left" href="{{ path('scenarzysci_show', {'id': scen.idScenarzysty.idScenarzysty}) }}">
+                        <p>{{ scen.idScenarzysty.Imie }} {{ scen.idScenarzysty.Nazwisko }}</p>
+                    </a>,&nbsp
+                    {% endfor %}
+                </div>
+            <div style="clear: both"></div>
+               gatunek: {% for gat in gatunek %}{{gat}}, {% endfor %}
+            <br/>
+            czas trwania: {{ czasTrwania }} min
+            <br/>
+            produkcja: {% for prod in produkcja %}{{prod}}, {% endfor %}
+            <br/>
+            premiera światowa: {{ entity.dataPremierySwiat|date('d-m-Y') }}
+            <br/>
+            premiera polska: {{ entity.dataPremieryPl|date('d-m-Y') }}
+        </div>
+
+
+<div id="ocena">
+    <div id="ilGlosow" align="right">{{ ilOcen }} głosów</div>
+    <div style="padding-left: 10px" id="gwiazda">
+        <img class="img-responsive" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Gold_Star.svg/2000px-Gold_Star.svg.png" width="50"></a>
+    </div>
+    <div id="ocenaWartosc">{{ entity.ocenaKoncowa|number_format(2,'.',',') }}</div>
+    <div id="ocen">
+
+        {% if user!=null %}
+            &nbsp;Oceń film!
+             {{ form_start(rateform) }}
+            {{ form_widget(rateform) }}
+            &nbsp;{{ form_end(rateform) }}
+
+        {#<form action="{{ path('filmy_rated', {'filmyID': entity.idFilmu}) }}" method="post" {{ form_enctype(form) }}>#}
+        {#<input id="ocenianie" name="rateNote" value="0" type="number" class="rating" data-size="xs"#}
+               {#min=0 max=10 step=0.5  data-stars="10">#}
+            {#<button type="submit" name="rateBtn" class="btn btn-primary form-control"><span class="glyphicon glyphicon-search"></span></button>#}
+        {#</form>#}
+        {% else %}
+            &nbsp;Zaloguj się aby ocenić!<br/>
+            <input id="ocenianie" name="rateNote" value="0" type="number" class="rating" data-size="xs"#}
+            min=0 max=10 step=0.5  data-stars="10" data-readonly="true">
+
+        {% endif %}
+    </div>
+    </div>
+
+
+
+        <div style="clear:both;"></div>
+        <div id="trailery">
+            <br />
+            Zwiastuny({{ ilTrailerow }})
+            <br />
+        </div>
+
+        <div id ="Slider">
+            <div class="span8">
+                <div id="myCarousel" class="carousel slide" data-interval="false">
+                    <ol class="carousel-indicators">
+                        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                        {% for i in 1..ilTrailerow-1 %}
+                        <li data-target="#myCarousel" data-slide-to="{{ i }}" class=""></li>
+                        {% endfor %}
+                    </ol>
+                    <div class="carousel-inner">
+                        <div class="item active">
+                            <iframe width="480" height="360" src="{{ trailery[0] }}" frameborder="0" allowfullscreen=""></iframe>
+                        </div>
+                        {% for trail in trailery|slice(1,ilTrailerow) %}
+                        <div class="item">
+                            <iframe width="480" height="360" src="{{ trail }}" frameborder="0" allowfullscreen=""></iframe>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <a class="left carousel-control" href="#myCarousel" data-slide="prev">‹</a>
+                    <a class="right carousel-control" href="#myCarousel" data-slide="next">›</a>
+                </div>
+            </div>
+        </div>
+        <br/> <br/>
+
+
+    <div style="font-size: 25px" id="osoby">&nbsp&nbspObsada({{ ilAktorow }}):</div>
+        <div style="clear: both"></div>
+        <div id="obsada">
+            <div class="table-responsive">
+                <table style="font-size: 20px" class="table">
+                    <thead>
+                    <tr>
+                        <th></th>
+                        <th>Imię i nazwisko</th>
+                        <th>Rola</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for aktor in aktorzy %}
+                    <tr>
+                        <td> <a href="{{ path('aktorzy_show', {'id': aktor.idAktora.idAktora}) }}">
+                                <p>  <img src="{{ aktor.idAktora.zdjecie }}" title="{{aktor.idAktora.imie}} {{ aktor.idAktora.nazwisko }} " width="70" height="100"></p>
+                            </a></td>
+                        </td>
+                        <td><a href="{{ path('aktorzy_show', {'id': aktor.idAktora.idAktora}) }}">
+                                <p> {{aktor.idAktora.imie}} {{ aktor.idAktora.nazwisko }}</p>
+                            </a></td>
+                        <td>{{ aktor.rola }}</td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    <div id="comments">
+        <br />
+        Komentarze:<br />
+    </div>
+    <div style="padding: 20px;"id="komentarze">
+        <div class="panel panel-default">
+            <div  class="panel-body">
+            {% for komentarz in komentarze %}
+                  <strong>{{ komentarz.uzytkownik }}</strong>
+                  <p>{{ komentarz.komentarz|raw }}</p>
+            {% endfor %}
+            </div>
+        </div>
+
+        <div class="paddings-sm">
+            {{ form_start(form) }}
+            {{ form_widget(form) }}
+            {{ form_end(form) }}
+        </div>
+    </div>
+        <ul class="record_actions">
+            <li>
+                <a href="{{ path('filmy') }}">
+                    Wróc do listy filmów
+                </a>
+            </li>
+            </ul>
+            <br />
+
+
+    <script>
+        jQuery(document).ready(function () {
+            $("#input-21f").rating({
+                starCaptions: function(val) {
+                    if (val < 3) {
+                        return val;
+                    } else {
+                        return 'high';
+                    }
+                },
+                starCaptionClasses: function(val) {
+                    if (val < 3) {
+                        return 'label label-danger';
+                    } else {
+                        return 'label label-success';
+                    }
+                },
+                hoverOnClear: false
+            });
+
+            $('#rating-input').rating({
+                min: 0,
+                max: 5,
+                step: 1,
+                size: 'lg',
+                showClear: false
+            });
+
+            $('#btn-rating-input').on('click', function() {
+                $('#rating-input').rating('refresh', {
+                    showClear:true,
+                    disabled:true
+                });
+            });
+
+
+            $('.btn-danger').on('click', function() {
+                $("#kartik").rating('destroy');
+            });
+
+            $('.btn-success').on('click', function() {
+                $("#kartik").rating('create');
+            });
+
+            $('#rating-input').on('rating.change', function() {
+                alert($('#rating-input').val());
+            });
+
+
+            $('.rb-rating').rating({'showCaption':true, 'stars':'3', 'min':'0', 'max':'3', 'step':'1', 'size':'xs', 'starCaptions': {0:'status:nix', 1:'status:wackelt', 2:'status:geht', 3:'status:laeuft'}});
+        });
+    </script>
+
+
+{% endblock %}
+

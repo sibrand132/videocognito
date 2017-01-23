@@ -1,0 +1,36 @@
+AppBundle\Entity\Uzytkownicy:
+    type: entity
+    table: uzytkownicy
+    id:
+        idUzytkownika:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: id_uzytkownika
+            generator:
+                strategy: IDENTITY
+    fields:
+        login:
+            type: text
+            nullable: false
+            length: 65535
+            options:
+                fixed: false
+        haslo:
+            type: text
+            nullable: false
+            length: 65535
+            options:
+                fixed: false
+        email:
+            type: text
+            nullable: false
+            length: 65535
+            options:
+                fixed: false
+        admin:
+            type: boolean
+            nullable: false
+    lifecycleCallbacks: {  }

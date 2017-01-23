@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/app/Resources/views/base.html.twig" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/Resources/views/default/index.html.twig" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/AppBundle/Controller/AktorzyController.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/AppBundle/Controller/ScenarzysciController.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/AppBundle/Entity/Rezyserzy.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/AppBundle/Resources/config/doctrine/Rezyserzy.orm.yml" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Aktorzy/index.html.twig" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Aktorzy/show.html.twig" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Filmy/index.html.twig" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Filmy/show.html.twig" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/AppBundle/Resources/views/MainPage/show.html.twig" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/AppBundle/Resources/views/MoviePage/movie.html.twig" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Ranking/show.html.twig" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Rezyserzy/index.html.twig" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Rezyserzy/show.html.twig" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Scenarzysci/index.html.twig" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Scenarzysci/show.html.twig" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Wyszukiwanie/search.html.twig" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/AppBundle/forms/RateType.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle/Resources/views/Profile/show.html.twig" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle/Resources/views/Profile/show_content.html.twig" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle/Resources/views/Registration/register_content.html.twig" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle/Resources/views/Security/login.html.twig" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle/Resources/views/layout.html.twig" charset="UTF-8" />
+  </component>
+</project>

@@ -1,0 +1,30 @@
+komentarze:
+    path:     /
+    defaults: { _controller: "AppBundle:Komentarze:index" }
+
+komentarze_show:
+    path:     /{id}/show
+    defaults: { _controller: "AppBundle:Komentarze:show" }
+
+komentarze_new:
+    path:     /new
+    defaults: { _controller: "AppBundle:Komentarze:new" }
+
+komentarze_create:
+    path:     /create
+    defaults: { _controller: "AppBundle:Komentarze:create" }
+    methods:  POST
+
+komentarze_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AppBundle:Komentarze:edit" }
+
+komentarze_update:
+    path:     /{id}/update
+    defaults: { _controller: "AppBundle:Komentarze:update" }
+    methods:  [POST, PUT]
+
+komentarze_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AppBundle:Komentarze:delete" }
+    methods:  [POST, DELETE]

@@ -1,0 +1,138 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}Wyniki wyszukiwania{% endblock %}
+{% block stylesheets %} <link href="{{ asset('style/lista.css') }}" rel="stylesheet" /> {% endblock %}
+{% block body %}
+<h1>Wyniki wyszukiwania dla "{{ fraza }}":</h1><br/>
+
+    {% if request !=null %}
+    <h2>Filmy:</h2><br/>
+    <div id="lista">
+        <div class="table-responsive">
+            <table style="font-size: 20px;" class="table">
+                <thead>
+                <tr>
+                    <th></th>
+                    <th>Polski tytuł</th>
+                    <th>Oryginalny tytuł</th>
+                    <th>Data premiery światowej</th>
+                    <th>Czas trwania</th>
+                    <th>Ocena</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for entity in request %}
+                    <tr>
+                        <td>  <a href="{{ path('filmy_show', {'id': entity.idFilmu}) }}">
+                                <p>  <img src="{{ entity.plakat }}" title="{{entity.tytulPl }}" width="70" height="100"></p>
+                            </a></td>
+                        <td><a href="{{ path('filmy_show', {'id': entity.idFilmu}) }}">
+                                <p>  {{ entity.tytulPl }}</p>
+                            </a></td>
+                        <td><a href="{{ path('filmy_show', {'id': entity.idFilmu}) }}">
+                                <p>  {{ entity.tytulAng }}</p>
+                            </a></td>
+                        <td>{% if entity.dataPremierySwiat %}{{ entity.dataPremierySwiat|date('d-m-Y ') }}{% endif %}</td>
+                        <td>{{ entity.czasTrwaniaMin }} minut</td>
+                        <td><img style="float: left; padding-top: 2px;" class="img-responsive" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Gold_Star.svg/2000px-Gold_Star.svg.png" width="20">8,5</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    {% endif %}
+    {% if aktorzy !=null %}
+    <h2>Aktorzy:</h2><br/>
+    <div id="lista">
+        <div class="table-responsive">
+            <table style="font-size: 20px;" class="table">
+                <thead>
+                <tr>
+                    <th></th>
+                    <th>Imię i nazwisko</th>
+                    <th>Data urodzenia</th>
+                    <th>Miejsce urodzenia</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for entity in aktorzy %}
+                    <tr>
+                        <td>  <a href="{{ path('aktorzy_show', {'id': entity.idAktora}) }}">
+                                <p>  <img src="{{ entity.zdjecie }}" title="{{entity.imie }} {{ entity.nazwisko }}" width="70" height="100"></p>
+                            </a></td>
+                        <td><a href="{{ path('aktorzy_show', {'id': entity.idAktora}) }}">
+                                <p>{{entity.imie }} {{ entity.nazwisko }}</p>
+                            </a></td>
+                        <td>{% if entity.dataUrodzenia %}{{ entity.dataUrodzenia|date('d-m-Y') }}{% endif %}</td>
+                        <td>{{ entity.miejsceUrodzenia }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    {% endif %}
+    {% if rezyserzy !=null %}
+    <h2>Rezyserzy:</h2><br/>
+    <div id="lista">
+        <div class="table-responsive">
+            <table style="font-size: 20px;" class="table">
+                <thead>
+                <tr>
+                    <th></th>
+                    <th>Imię i nazwisko</th>
+                    <th>Data urodzenia</th>
+                    <th>Miejsce urodzenia</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for entity in rezyserzy %}
+                    <tr>
+                        <td>  <a href="{{ path('rezyserzy_show', {'id': entity.idRezysera}) }}">
+                                <p>  <img src="{{ entity.zdjecie }}" title="{{entity.imie }} {{ entity.nazwisko }}" width="70" height="100"></p>
+                            </a></td>
+                        <td><a href="{{ path('rezyserzy_show', {'id': entity.idRezysera}) }}">
+                                <p>{{entity.imie }} {{ entity.nazwisko }}</p>
+                            </a></td>
+                        <td>{% if entity.dataUrodzenia %}{{ entity.dataUrodzenia|date('d-m-Y') }}{% endif %}</td>
+                        <td>{{ entity.miejsceUrodzenia }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    {% endif %}
+    {% if scenarzysci !=null %}
+    <h2>Scenarzysci:</h2><br/>
+    <div id="lista">
+        <div class="table-responsive">
+            <table style="font-size: 20px;" class="table">
+                <thead>
+                <tr>
+                    <th></th>
+                    <th>Imię i nazwisko</th>
+                    <th>Data urodzenia</th>
+                    <th>Miejsce urodzenia</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for entity in scenarzysci %}
+                    <tr>
+                        <td>  <a href="{{ path('scenarzysci_show', {'id': entity.idScenarzysty}) }}">
+                                <p>  <img src="{{ entity.zdjecie }}" title="{{entity.imie }} {{ entity.nazwisko }}" width="70" height="100"></p>
+                            </a></td>
+                        <td><a href="{{ path('scenarzysci_show', {'id': entity.idScenarzysty}) }}">
+                                <p>{{entity.imie }} {{ entity.nazwisko }}</p>
+                            </a></td>
+                        <td>{% if entity.dataUrodzenia %}{{ entity.dataUrodzenia|date('d-m-Y') }}{% endif %}</td>
+                        <td>{{ entity.miejsceUrodzenia }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    {% endif %}
+{% endblock %}

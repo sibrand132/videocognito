@@ -1,0 +1,38 @@
+#SliderN{
+    padding-top: 20px;
+    width: 350px;
+    height: 500px;
+    display: inline-block;
+}
+
+h2{
+    padding-top: 20px;
+}
+
+#Najnowsze{
+    padding-left: 37px;
+}
+
+#SliderP{
+    padding-top: 20px;
+    width: 350px;
+    height: 500px;
+    display: inline-block;
+}
+
+#Premiery{
+    padding-left: 37px;
+    display: inline-block;
+}
+
+#SliderT{
+    padding-top: 20px;
+    width: 350px;
+    height: 500px;
+    display: inline-block;
+}
+
+#Top{
+    padding-left: 37px;
+    display: inline-block;
+}

@@ -1,0 +1,21 @@
+AppBundle\Entity\Trailery:
+    type: entity
+    table: trailery
+    id:
+        idTrailera:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: id_trailera
+            generator:
+                strategy: IDENTITY
+    fields:
+        sciezka:
+            type: text
+            nullable: false
+            length: 65535
+            options:
+                fixed: false
+    lifecycleCallbacks: {  }

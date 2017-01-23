@@ -1,0 +1,10 @@
+scenarzysci:
+    path:     /
+    defaults: { _controller: "AppBundle:Scenarzysci:index" }
+
+scenarzysci_show:
+    path:     /{id}/show
+    defaults: { _controller: "AppBundle:Scenarzysci:show" }
+
+
+

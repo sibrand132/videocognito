@@ -1,0 +1,128 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}Witaj na Videocognito{% endblock %}
+
+
+{% block stylesheets %}
+    <link href="{{ asset('style/main.css') }}" rel="stylesheet" />
+{% endblock %}
+{% block body %}
+
+    <div id="Najnowsze" style="float: left">
+        <h2>Najnowsze: </h2>
+        <div id ="SliderN">
+            <div class="span8">
+                <div id="myCarousel" class="carousel slide" data-interval="false">
+                    <ol class="carousel-indicators">
+                        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                        {% for i in 1..ilN-1 %}
+                            <li data-target="#myCarousel" data-slide-to="{{ i }}" class=""></li>
+                        {% endfor %}
+                    </ol>
+                    <div class="carousel-inner">
+                        <div class="item active">
+                            <a href="{{ path('filmy_show', {'id': najnowsze[0].idFilmu}) }}">
+                                <img width="350" height="500" src="{{ najnowsze[0].plakat }}"  >
+                            </a>
+                            <div style="background-color: #000000; background: rgba(0, 0, 0, 0.6); filter: alpha(opacity=50); "class="carousel-caption">
+                                <h3>{{ najnowsze[0].tytulPl }}</h3>
+                            </div>
+                        </div>
+                        {% for najn in najnowsze|slice(1,ilN) %}
+                            <div class="item">
+                                <a href="{{ path('filmy_show', {'id': najn.idFilmu}) }}">
+                                    <img width="350" height="500" src="{{ najn.plakat }}"  >
+                                </a>
+                                <div style="background-color: #000000; background: rgba(0, 0, 0, 0.6); filter: alpha(opacity=50); " class="carousel-caption">
+                                    <h3>{{ najn.tytulPl }} </h3>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <a class="left carousel-control" href="#myCarousel" data-slide="prev">‹</a>
+                    <a class="right carousel-control" href="#myCarousel" data-slide="next">›</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="Premiery" style="float: left">
+        <h2>Nadciągające premiery: </h2>
+        <div id ="SliderP">
+            <div class="span8">
+                <div id="myCarousel1" class="carousel slide" data-interval="false">
+                    <ol class="carousel-indicators">
+                        <li data-target="#myCarousel1" data-slide-to="0" class="active"></li>
+                        {% for i in 1..ilP-1 %}
+                            <li data-target="#myCarousel1" data-slide-to="{{ i }}" class=""></li>
+                        {% endfor %}
+                    </ol>
+                    <div class="carousel-inner">
+                        <div class="item active">
+                            <a href="{{ path('filmy_show', {'id': premiery[0].idFilmu}) }}">
+                                <img width="350" height="500" src="{{ premiery[0].plakat }}"  >
+                            </a>
+                            <div style="background-color: #000000; background: rgba(0, 0, 0, 0.6); filter: alpha(opacity=50); " class="carousel-caption">
+                                <h3>{{ premiery[0].tytulPl }} </h3>
+                            </div>
+                        </div>
+                        {% for prem in premiery|slice(1,ilP) %}
+                            <div class="item">
+                                <a href="{{ path('filmy_show', {'id': prem.idFilmu}) }}">
+                                    <img width="350" height="500" src="{{ prem.plakat }}"  >
+                                </a>
+                                <div style="background-color: #000000; background: rgba(0, 0, 0, 0.6); filter: alpha(opacity=50); " class="carousel-caption">
+                                    <h3>{{ prem.tytulPl }} </h3>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <a class="left carousel-control" href="#myCarousel1" data-slide="prev">‹</a>
+                    <a class="right carousel-control" href="#myCarousel1" data-slide="next">›</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="Top">
+        <h2>Top10: </h2>
+        <div id ="SliderT">
+            <div class="span8">
+                <div id="myCarousel2" class="carousel slide" data-interval="false">
+                    <ol class="carousel-indicators">
+                        <li data-target="#myCarousel2" data-slide-to="0" class="active"></li>
+
+                        {% for i in 1..ilT10-1 %}
+                            <li data-target="#myCarousel2" data-slide-to="{{ i }}" class="" ></li>
+                        {% endfor %}
+                    </ol>
+                    <div class="carousel-inner">
+                        <div class="item active">
+                            <a href="{{ path('filmy_show', {'id': top10[0].idFilmu}) }}">
+                                <img width="350" height="500" src="{{ top10[0].plakat }}"  >
+                            </a>
+                            <div style="background-color: #000000; background: rgba(0, 0, 0, 0.6); filter: alpha(opacity=50); " class="carousel-caption">
+                                <h3>{{ top10[0].tytulPl }} </h3>
+                            </div>
+                        </div>
+                        {% for t10 in top10|slice(1,ilT10) %}
+                            <div class="item">
+                                <a href="{{ path('filmy_show', {'id': t10.idFilmu}) }}">
+                                    <img width="350" height="500" src="{{ t10.plakat }}"  >
+                                </a>
+                                <div style="background-color: #000000; background: rgba(0, 0, 0, 0.6); filter: alpha(opacity=50); " class="carousel-caption">
+                                    <h3>{{ t10.tytulPl }} </h3>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <a class="left carousel-control" href="#myCarousel2" data-slide="prev">‹</a>
+                    <a class="right carousel-control" href="#myCarousel2" data-slide="next">›</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div style="clear: both"></div>
+{% endblock %}

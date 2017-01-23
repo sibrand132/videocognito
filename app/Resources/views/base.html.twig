@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+
+        <title>{% block title %}Witaj na Videocognito!{% endblock %}</title>
+        <meta charset="UTF-8" />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <link href="{{ asset('style/style.css') }}" rel="stylesheet" />
+        <link href='http://fonts.googleapis.com/css?family=Inder&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+        {% block stylesheets %}{% endblock %}
+
+        <link rel="icon" type="image/x-icon" href="{{ asset('http://zapodaj.net/images/74afd031a9789.png') }}" />
+    </head>
+    <body>
+    <div id="head">
+
+        <div id="logo">
+            <a href="/videocognito/app_dev.php"><img class="img-responsive" src="http://zapodaj.net/images/ed7f3cbc1184e.png" width="450" alt="Logo"></a>
+        </div>
+
+        <div style="padding-top: 25px; padding-left: 50px"class="navbar-form navbar-left">
+        <form action="{{ path('search') }}" method="post">
+            <input type="text" name="search" class="form-control col-xs-4" placeholder="Wyszukaj...">
+            <button type="submit" name="searchBtn" class="btn btn-primary form-control"><span class="glyphicon glyphicon-search"></span></button>
+        </form>
+    </div>
+
+        <div id="register">
+            <div class="btn-group">
+                {% if user == null %}
+                    <a href="/videocognito/app_dev.php/register"><button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-user"></span> Zarejestruj</button></a>
+                    <a href="/videocognito/app_dev.php/login"><button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-log-in"></span> Zaloguj</button></a>
+                {% else %}
+                    <p style="color: white; float: left; padding-top: 8px; padding-right: 20px; font-size: large;">Witaj, {{ user.username }}</p>
+                    <a href="/videocognito/app_dev.php/logout"><button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-log-out"></span> Wyloguj</button></a>
+                {% endif %}
+            </div>
+        </div>
+
+        <div id="navbar">
+            <nav class="navbar navbar-inverse">
+                <div class="container-fluid">
+                    <div>
+                        <ul class="nav navbar-nav">
+                            <li class="dropdown"><a href="/videocognito/app_dev.php"><span class="glyphicon glyphicon-home"></span></a></li>
+                            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Filmy <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="/videocognito/app_dev.php/filmy">Baza filmów</a></li>
+                                    <li><a href="/videocognito/app_dev.php/ranking">Ranking</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Osoby kina<span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="/videocognito/app_dev.php/aktorzy">Aktorzy</a></li>
+                                    <li><a href="/videocognito/app_dev.php/rezyserzy">Reżyserzy</a></li>
+                                    <li><a href="/videocognito/app_dev.php/scenarzysci">Scenarzyści</a></li>
+                                </ul>
+                            </li>
+                            {% if user != null %}
+                                <li><a href="/videocognito/app_dev.php/profile">Moje konto</a></li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+    <div id="container">
+        {% block body %}{% endblock %}
+        <div id="stopka" align ="center">
+            Copyright © by Videocognito sp.z.o.o 2015-2016
+        </div>
+     </div>
+
+
+
+    {% block javascripts %}{% endblock %}
+    </body>
+</html>

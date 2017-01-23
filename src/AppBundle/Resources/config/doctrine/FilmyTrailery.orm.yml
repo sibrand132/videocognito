@@ -1,0 +1,42 @@
+AppBundle\Entity\FilmyTrailery:
+    type: entity
+    table: filmy_trailery
+    indexes:
+        id_filmu:
+            columns:
+                - id_filmu
+        id_trailera:
+            columns:
+                - id_trailera
+    id:
+        idFilmyTrailery:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: id_filmy_trailery
+            generator:
+                strategy: IDENTITY
+    manyToOne:
+        idFilmu:
+            targetEntity: Filmy
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_filmu:
+                    referencedColumnName: id_filmu
+            orphanRemoval: false
+        idTrailera:
+            targetEntity: Trailery
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_trailera:
+                    referencedColumnName: id_trailera
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

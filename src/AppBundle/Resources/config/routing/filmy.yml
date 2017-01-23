@@ -1,0 +1,15 @@
+filmy:
+    path:     /
+    defaults: { _controller: "AppBundle:Filmy:index" }
+
+filmy_show:
+    path:     /{id}/show
+    defaults: { _controller: "AppBundle:Filmy:show" }
+
+filmy_rated:
+    path:   /{filmyID}/rated
+    defaults: { _controller: "AppBundle:Filmy:rated" }
+
+
+
+

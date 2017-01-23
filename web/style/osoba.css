@@ -1,0 +1,44 @@
+
+#zdjecie
+{
+    margin-left: 20px;
+    margin-top: 20px;
+    float: left;
+}
+
+#opis
+{
+    padding-top: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+    width: 760px;
+    font-size: 20px;
+    float: left;
+    display: block;
+}
+
+
+#Imie{
+    font-size: 50px;
+    display: inline-block;
+}
+#biografia{
+    padding-top: 50px;
+    font-size: 25px;
+}
+#tworczosc{
+    padding-top: 50px;
+    font-size: 25px;
+    padding-left: 20px;
+}
+#filmy{
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 20px;
+}
+
+
+.record_actions
+{
+    clear: both;
+}

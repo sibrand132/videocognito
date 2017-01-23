@@ -1,0 +1,95 @@
+#plakat
+{
+    margin-left: 20px;
+    margin-top: 20px;
+    float: left;
+}
+h1{
+    font-size: 50px;
+}
+
+#opis
+{
+    margin-left: 20px;
+    margin-right: 20px;
+    width: 450px;
+    float: left;
+    font-size: 20px;
+}
+.linki{
+    color: #ffcc00;
+}
+
+#ocena
+{
+    margin-left: 20px;
+    margin-top: 20px;
+    width: 300px;
+    background-color: #181818;
+    display: inline-block;
+}
+
+#ilGlosow{
+    color: #858585
+}
+#gwiazda{
+    float: left;
+    padding-top: 25px;
+}
+#ocenaWartosc{
+    font-size: 70px;
+    float:left;
+    color: #858585;
+}
+
+#ocen{
+    clear: both;
+    color: #858585;
+    background-color: #313131;
+    padding-left: 5px;
+}
+
+
+h2
+{
+    padding-top: 10px;
+}
+#Slider{
+    padding-top: 10px;
+    padding-left: 20px;
+    width: 480px;
+    height: 360px;
+
+}
+
+#trailery{
+    padding-left: 20px;
+    font-size: 25px;
+}
+#comments{
+    padding-left: 20px;
+    font-size: 25px;
+}
+
+#obsada{
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.record_actions
+{
+    clear: both;
+}
+
+.paddings-sm{
+    padding: 10px 10px 10px 10px;
+}
+
+.bg-twitter-blue{
+    background-color: #0088CC;
+}
+
+.text-white{
+    color: white !important;
+}
+

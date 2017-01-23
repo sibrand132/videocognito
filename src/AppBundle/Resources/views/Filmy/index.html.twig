@@ -1,0 +1,42 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}Lista filmów - Videocognito {% endblock %}
+{% block stylesheets %} <link href="{{ asset('style/lista.css') }}" rel="stylesheet" /> {% endblock %}
+{% block body -%}
+    <h1>Lista filmów:</h1> <br/>
+    <div id="lista">
+<div class="table-responsive">
+    <table style="font-size: 20px;" class="table">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Polski tytuł</th>
+                <th>Oryginalny tytuł</th>
+                <th>Data premiery światowej</th>
+                <th>Czas trwania</th>
+                <th>Ocena</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td>  <a href="{{ path('filmy_show', {'id': entity.idFilmu}) }}">
+                        <p>  <img src="{{ entity.plakat }}" title="{{entity.tytulPl }}" width="70" height="100"></p>
+                    </a></td>
+                <td><a href="{{ path('filmy_show', {'id': entity.idFilmu}) }}">
+                        <p>  {{ entity.tytulPl }}</p>
+                    </a></td>
+                <td><a href="{{ path('filmy_show', {'id': entity.idFilmu}) }}">
+                        <p>  {{ entity.tytulAng }}</p>
+                    </a></td>
+                <td>{% if entity.dataPremierySwiat %}{{ entity.dataPremierySwiat|date('d-m-Y ') }}{% endif %}</td>
+                <td>{{ entity.czasTrwaniaMin }} minut</td>
+                <td><img style="float: left; padding-top: 2px;" class="img-responsive" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Gold_Star.svg/2000px-Gold_Star.svg.png" width="20">{{ entity.ocenaKoncowa|number_format(2,'.',',') }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    </div>
+    </div>
+
+    {% endblock %}

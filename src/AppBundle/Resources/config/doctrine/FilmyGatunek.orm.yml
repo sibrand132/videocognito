@@ -1,0 +1,42 @@
+AppBundle\Entity\FilmyGatunek:
+    type: entity
+    table: filmy_gatunek
+    indexes:
+        id_filmu:
+            columns:
+                - id_filmu
+        id_gatunku:
+            columns:
+                - id_gatunku
+    id:
+        idFilmyGatunek:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: id_filmy_gatunek
+            generator:
+                strategy: IDENTITY
+    manyToOne:
+        idFilmu:
+            targetEntity: Filmy
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_filmu:
+                    referencedColumnName: id_filmu
+            orphanRemoval: false
+        idGatunku:
+            targetEntity: Gatunek
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_gatunku:
+                    referencedColumnName: id_gatunku
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

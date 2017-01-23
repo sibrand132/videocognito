@@ -1,0 +1,21 @@
+AppBundle\Entity\Gatunek:
+    type: entity
+    table: gatunek
+    id:
+        idGatunku:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: id_gatunku
+            generator:
+                strategy: IDENTITY
+    fields:
+        nazwa:
+            type: text
+            nullable: false
+            length: 65535
+            options:
+                fixed: false
+    lifecycleCallbacks: {  }

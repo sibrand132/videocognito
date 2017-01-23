@@ -1,0 +1,20 @@
+AppBundle\Entity\User:
+    type: entity
+    table: user
+    uniqueConstraints:
+        UNIQ_8D93D64992FC23A8:
+            columns:
+                - username_canonical
+        UNIQ_8D93D649A0D96FBF:
+            columns:
+                - email_canonical
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    lifecycleCallbacks: {  }

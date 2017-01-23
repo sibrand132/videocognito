@@ -1,0 +1,84 @@
+<?php
+
+namespace AppBundle\Entity;
+
+/**
+ * UlubioneFilmy
+ */
+class UlubioneFilmy
+{
+    /**
+     * @var integer
+     */
+    private $idUlubione;
+
+    /**
+     * @var \AppBundle\Entity\Filmy
+     */
+    private $idFilmu;
+
+    /**
+     * @var \AppBundle\Entity\Uzytkownicy
+     */
+    private $idUzytkownika;
+
+
+    /**
+     * Get idUlubione
+     *
+     * @return integer
+     */
+    public function getIdUlubione()
+    {
+        return $this->idUlubione;
+    }
+
+    /**
+     * Set idFilmu
+     *
+     * @param \AppBundle\Entity\Filmy $idFilmu
+     *
+     * @return UlubioneFilmy
+     */
+    public function setIdFilmu(\AppBundle\Entity\Filmy $idFilmu = null)
+    {
+        $this->idFilmu = $idFilmu;
+
+        return $this;
+    }
+
+    /**
+     * Get idFilmu
+     *
+     * @return \AppBundle\Entity\Filmy
+     */
+    public function getIdFilmu()
+    {
+        return $this->idFilmu;
+    }
+
+    /**
+     * Set idUzytkownika
+     *
+     * @param \AppBundle\Entity\Uzytkownicy $idUzytkownika
+     *
+     * @return UlubioneFilmy
+     */
+    public function setIdUzytkownika(\AppBundle\Entity\Uzytkownicy $idUzytkownika = null)
+    {
+        $this->idUzytkownika = $idUzytkownika;
+
+        return $this;
+    }
+
+    /**
+     * Get idUzytkownika
+     *
+     * @return \AppBundle\Entity\Uzytkownicy
+     */
+    public function getIdUzytkownika()
+    {
+        return $this->idUzytkownika;
+    }
+}
+

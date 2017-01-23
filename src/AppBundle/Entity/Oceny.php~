@@ -1,0 +1,113 @@
+<?php
+
+namespace AppBundle\Entity;
+
+/**
+ * Oceny
+ */
+class Oceny
+{
+    /**
+     * @var integer
+     */
+    private $idOceny;
+
+    /**
+     * @var float
+     */
+    private $ocena;
+
+    /**
+     * @var \AppBundle\Entity\Filmy
+     */
+    private $idFilmu;
+
+    /**
+     * @var \AppBundle\Entity\Uzytkownicy
+     */
+    private $idUzytkownika;
+
+
+    /**
+     * Get idOceny
+     *
+     * @return integer
+     */
+    public function getIdOceny()
+    {
+        return $this->idOceny;
+    }
+
+    /**
+     * Set ocena
+     *
+     * @param float $ocena
+     *
+     * @return Oceny
+     */
+    public function setOcena($ocena)
+    {
+        $this->ocena = $ocena;
+
+        return $this;
+    }
+
+    /**
+     * Get ocena
+     *
+     * @return float
+     */
+    public function getOcena()
+    {
+        return $this->ocena;
+    }
+
+    /**
+     * Set idFilmu
+     *
+     * @param \AppBundle\Entity\Filmy $idFilmu
+     *
+     * @return Oceny
+     */
+    public function setIdFilmu(\AppBundle\Entity\Filmy $idFilmu = null)
+    {
+        $this->idFilmu = $idFilmu;
+
+        return $this;
+    }
+
+    /**
+     * Get idFilmu
+     *
+     * @return \AppBundle\Entity\Filmy
+     */
+    public function getIdFilmu()
+    {
+        return $this->idFilmu;
+    }
+
+    /**
+     * Set idUzytkownika
+     *
+     * @param \AppBundle\Entity\Uzytkownicy $idUzytkownika
+     *
+     * @return Oceny
+     */
+    public function setIdUzytkownika(\AppBundle\Entity\Uzytkownicy $idUzytkownika = null)
+    {
+        $this->idUzytkownika = $idUzytkownika;
+
+        return $this;
+    }
+
+    /**
+     * Get idUzytkownika
+     *
+     * @return \AppBundle\Entity\Uzytkownicy
+     */
+    public function getIdUzytkownika()
+    {
+        return $this->idUzytkownika;
+    }
+}
+

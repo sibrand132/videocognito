@@ -1,0 +1,41 @@
+AppBundle\Entity\Komentarze:
+    type: entity
+    table: komentarze
+    indexes:
+        id_filmu:
+            columns:
+                - id_filmu
+                - uzytkownik
+        id_uzytkownika:
+            columns:
+                - uzytkownik
+    id:
+        idKomentarza:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: id_komentarza
+            generator:
+                strategy: IDENTITY
+    fields:
+        idFilmu:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: id_filmu
+        uzytkownik:
+            type: string
+            nullable: false
+            length: 30
+            options:
+                fixed: false
+        komentarz:
+            type: text
+            nullable: false
+            length: 65535
+            options:
+                fixed: false
+    lifecycleCallbacks: {  }

@@ -1,0 +1,38 @@
+{% extends '::base.html.twig' %}
+{% block title %}Lista aktorów - Videocognito {% endblock %}
+{% block stylesheets %} <link href="{{ asset('style/lista.css') }}" rel="stylesheet" /> {% endblock %}
+
+{% block body -%}
+    <h1>Lista aktorów:</h1> <br/>
+
+        <div id="lista">
+        <div class="table-responsive">
+            <table style="font-size: 20px;" class="table">
+                <thead>
+                <tr>
+                    <th></th>
+                    <th>Imię i nazwisko</th>
+                    <th>Data urodzenia</th>
+                    <th>Miejsce urodzenia</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for entity in entities %}
+                    <tr>
+                        <td>  <a href="{{ path('aktorzy_show', {'id': entity.idAktora}) }}">
+                                <p>  <img src="{{ entity.zdjecie }}" title="{{entity.imie }} {{ entity.nazwisko }}" width="70" height="100"></p>
+                            </a></td>
+                        <td><a href="{{ path('aktorzy_show', {'id': entity.idAktora}) }}">
+                                <p>{{entity.imie }} {{ entity.nazwisko }}</p>
+                            </a></td>
+                        <td>{% if entity.dataUrodzenia %}{{ entity.dataUrodzenia|date('d-m-Y') }}{% endif %}</td>
+                        <td>{{ entity.miejsceUrodzenia }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+    {% endblock %}
